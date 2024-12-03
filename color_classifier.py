@@ -12,28 +12,28 @@ def classify_color(hex_color):
     except ValueError:
         return "invalid"
     # Color classification logic
-    if r > 200 and g < 100 and b < 100:
-        return "red"
-    elif r > 200 and g > 150 and b < 50:
-        return "orange"
-    elif r > 200 and g > 200 and b < 50:
-        return "yellow"
-    elif r < 100 and g > 200 and b < 100:
-        return "green"
-    elif r < 100 and g < 100 and b > 200:
-        return "blue"
-    elif r > 40 and g < 200 and b > 70:
-        return "violet"
-    elif r > 120 and g < 100 and b > 100:
-        return "pink"
-    elif (r > 40 and r < 180) and abs(g - b) < 20:
-        return "brown"
-    elif r > 200 and g > 200 and b > 200:
+    if r > 200 and g > 200 and b > 200:
         return "white"
     elif r < 50 and g < 50 and b < 50:
         return "black"
     elif abs(r - g) < 20 and abs(g - b) < 20:
         return "grey"
+    elif r >= g and r >= b:
+        return "red"
+    elif r > 200 and g > 150 and b < 50:
+        return "orange"
+    elif r > b and g > b:
+        return "yellow"
+    elif g >= r and g >= b:
+        return "green"
+    elif b >= r and b >= g:
+        return "blue"
+    elif r > g and b > g:
+        return "violet"
+    elif r > g and r > b:
+        return "pink"
+    elif r > g > b:
+        return "brown"
     else:
         return "unknown"
 
